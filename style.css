@@ -1,0 +1,128 @@
+/* Import Star Wars-like font (Orbitron) */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png'), black;
+  background-size: cover;
+  color: #ffe81f; /* Star Wars yellow */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Flickering stars animation */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: transparent url("https://www.transparenttextures.com/patterns/stardust.png") repeat;
+  animation: stars 10s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes stars {
+  from { background-position: 0 0; }
+  to { background-position: -1000px 1000px; }
+}
+
+.container {
+  background: rgba(0, 0, 0, 0.85);
+  padding: 2rem;
+  border: 2px solid #ffe81f;
+  border-radius: 12px;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 25px #ffe81f, 0 0 50px #ffdd33 inset;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  text-shadow: 0 0 10px #ffe81f, 0 0 20px #ffaa00;
+  letter-spacing: 2px;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+#text-input {
+  padding: 0.8rem;
+  border: 2px solid #ffe81f;
+  border-radius: 6px 0 0 6px;
+  background: black;
+  color: #ffe81f;
+  font-size: 1rem;
+  outline: none;
+  flex: 1;
+}
+
+#check-btn {
+  background: #ffe81f;
+  color: black;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0 6px 6px 0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+}
+
+#check-btn:hover {
+  background: #ffcc00;
+  box-shadow: 0 0 20px #ffe81f, 0 0 40px #ffdd33;
+  transform: scale(1.05);
+}
+
+#result {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-shadow: 0 0 8px #ffe81f;
+  color: #fff;
+  min-height: 1.5rem;
+}
+
+/* Extra Star Wars crawl-style animation (optional for fun) */
+.crawl {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ffe81f;
+  text-align: justify;
+  perspective: 400px;
+  overflow: hidden;
+  height: 150px;
+  position: relative;
+}
+
+.crawl p {
+  position: absolute;
+  top: 100%;
+  animation: crawl 30s linear infinite;
+}
+
+@keyframes crawl {
+  from { top: 100%; transform: rotateX(20deg) translateZ(0); }
+  to { top: -200%; transform: rotateX(25deg) translateZ(-300px); }
+}
